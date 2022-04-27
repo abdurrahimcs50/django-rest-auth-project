@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-x)tdv&is(h@b85%+wl0$l&865&8602@hsmuqy9m@@$kr*+!uob'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['admobapi.herokuapp.com',]
 
 
 # Application definition
@@ -191,11 +191,19 @@ SIMPLE_JWT = {
 
 PASSWORD_RESET_TIMEOUT=900          # 900 Sec = 15 Min
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
+CORS_ORIGIN_ALLOW_ALL = True
+ALLOWED_HOSTS = [
+    "http://127.0.0.1:3000", 
+    "http://127.0.0.1", 
+    "http://localhost:3000", 
+    "http://localhost"
 ]
-
+CORS_ORIGIN_WHITELIST = [
+    "http://127.0.0.1:3000", 
+    "http://127.0.0.1", 
+    "http://localhost:3000", 
+    "http://localhost"
+]
 
 
 django_heroku.settings(locals())
