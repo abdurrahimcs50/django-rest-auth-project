@@ -1,16 +1,16 @@
 from rest_framework import serializers
-from api.models import User
+from account.models import User
 from django.utils.encoding import smart_str, force_bytes, DjangoUnicodeDecodeError
 from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
 from django.contrib.auth.tokens import PasswordResetTokenGenerator
-from api.utils import Util
+from account.utils import Util
 
 class UserRegistrationSerializer(serializers.ModelSerializer):
   # We are writing this becoz we need confirm password field in our Registratin Request
   password2 = serializers.CharField(style={'input_type':'password'}, write_only=True)
   class Meta:
     model = User
-    fields=['email', 'first_name', 'last_name', 'password', 'password2',]
+    fields=['email', 'name', 'password', 'password2', 'tc']
     extra_kwargs={
       'password':{'write_only':True}
     }
@@ -35,7 +35,7 @@ class UserLoginSerializer(serializers.ModelSerializer):
 class UserProfileSerializer(serializers.ModelSerializer):
   class Meta:
     model = User
-    fields = ['id', 'email', 'first_name', 'last_name',]
+    fields = ['id', 'email', 'name']
 
 class UserChangePasswordSerializer(serializers.Serializer):
   password = serializers.CharField(max_length=255, style={'input_type':'password'}, write_only=True)
