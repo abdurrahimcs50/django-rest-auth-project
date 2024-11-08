@@ -174,6 +174,3 @@ For any questions or suggestions, feel free to reach out:
 - **Website**: [www.rahim.com.bd](http://www.rahim.com.bd)
 ```
 
-This complete `README.md` file includes all the necessary sections: features, installation, usage, API endpoints, contributing guidelines, and contact information. You can copy and paste it directly into your project repository.
-
-
